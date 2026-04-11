@@ -303,6 +303,71 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:26
 input,select,textarea,.fi,.fs,.ft{cursor:none !important;}
 button{cursor:none !important;} a{cursor:none !important;}
 
+/* THEME TOGGLE */
+.theme-toggle{background:none;border:1px solid var(--border);border-radius:20px;padding:6px 12px;cursor:none;display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted2);transition:all .2s;margin-right:8px;}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.theme-toggle .theme-icon{font-size:1rem;transition:transform .3s;}
+html.light{--bg:#f0f2f5;--bg1:#e4e6eb;--panel:rgba(255,255,255,0.9);--border:rgba(0,150,136,0.15);--border2:rgba(0,150,136,0.3);--text:#1a1a2e;--muted:#8b95a5;--muted2:#5a6577;}
+html.light body{background:var(--bg);color:var(--text);}
+html.light body::after{opacity:.08;}
+html.light header{background:rgba(240,242,245,.85);}
+html.light header.sc{background:rgba(240,242,245,.97);}
+html.light .gc,.light .hcard,.light .ev-card,.light .form-card,.light .obj-sec,.light .prog-sec,.light .lb-panel{background:rgba(255,255,255,.85);border-color:rgba(0,150,136,.12);}
+html.light .fi,.light .fs,.light .ft{background:rgba(0,0,0,.04);color:var(--text);}
+html.light .fi::placeholder,.light .ft::placeholder{color:#aaa;}
+html.light .line1{-webkit-text-fill-color:#1a1a2e;}
+html.light footer{background:rgba(240,242,245,.7);}
+html.light .toast{background:rgba(255,255,255,.96);color:#1a1a2e;}
+html.light #loader{background:var(--bg);}
+html.light .lb-row:hover{background:rgba(0,150,136,.06);}
+html.light .dr-panel{background:rgba(240,242,245,.97);}
+html.light #bnav{background:rgba(240,242,245,.96);}
+
+/* RECRUITMENT STATUS */
+.recruit-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-family:'DM Mono',monospace;animation:pulse 2s infinite;}
+.recruit-badge.open{background:rgba(0,229,201,.1);border:1px solid rgba(0,229,201,.3);color:var(--accent);}
+.recruit-badge.closed{background:rgba(255,45,85,.1);border:1px solid rgba(255,45,85,.3);color:var(--red);animation:none;}
+.recruit-dot{width:8px;height:8px;border-radius:50%;}
+.recruit-badge.open .recruit-dot{background:var(--accent);box-shadow:0 0 8px var(--accent-glow);}
+.recruit-badge.closed .recruit-dot{background:var(--red);}
+
+/* FAQ */
+.faq-item{background:rgba(6,10,24,.6);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:border-color .3s;}
+.faq-item:hover{border-color:var(--border2);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:600;font-size:.92rem;color:var(--text);transition:color .2s;}
+.faq-q:hover{color:var(--accent);}
+.faq-arrow{font-size:.8rem;color:var(--muted);transition:transform .3s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--accent);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 22px;color:var(--muted2);font-size:.88rem;line-height:1.8;}
+.faq-item.open .faq-a{max-height:300px;padding:0 22px 18px;}
+html.light .faq-item{background:rgba(255,255,255,.7);}
+
+/* EVENT COUNTDOWN */
+.event-countdown{background:linear-gradient(135deg,rgba(255,45,85,.08),rgba(255,183,0,.06));border:1px solid rgba(255,45,85,.2);border-radius:var(--r);padding:24px 30px;margin-bottom:24px;text-align:center;}
+.ec-title{font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:3px;color:var(--red);margin-bottom:6px;}
+.ec-name{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:14px;}
+.ec-grid{display:flex;gap:10px;justify-content:center;}
+.ec-box{background:rgba(255,45,85,.06);border:1px solid rgba(255,45,85,.15);border-radius:4px;padding:10px 14px;min-width:70px;text-align:center;}
+.ec-num{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:700;color:var(--red);display:block;}
+.ec-lbl{font-size:.5rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;display:block;}
+
+/* HALL OF FAME */
+.hof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:24px;}
+.hof-card{background:rgba(6,10,24,.7);border:1px solid var(--border);border-radius:var(--r);padding:24px 18px;text-align:center;position:relative;overflow:hidden;transition:all .3s;}
+.hof-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--accent));opacity:.6;}
+.hof-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(255,183,0,.1);}
+.hof-emoji{font-size:2.5rem;margin-bottom:8px;}
+.hof-name{font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:6px;}
+.hof-role{font-size:.72rem;color:var(--gold);font-weight:600;letter-spacing:1px;margin-bottom:4px;}
+.hof-desc{font-size:.78rem;color:var(--muted2);line-height:1.5;}
+html.light .hof-card{background:rgba(255,255,255,.7);}
+
+/* MUSIC BTN */
+.music-btn{position:fixed;bottom:20px;left:20px;z-index:100;background:rgba(6,10,24,.85);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;font-size:1.1rem;}
+.music-btn:hover{border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow);transform:scale(1.1);}
+.music-btn.playing{border-color:var(--accent);animation:pulse 2s infinite;}
+@media(max-width:640px){.music-btn{bottom:80px;}}
+
 /* RESPONSIVE */
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer !important;padding:8px;}
 .burger span{display:block;width:24px;height:2px;background:var(--accent);border-radius:2px;transition:transform .3s,opacity .3s;}
@@ -386,6 +451,7 @@ button{cursor:none !important;} a{cursor:none !important;}
     <button class="nb" onclick="showPage('about',this)">La Team</button>
     <button class="nb" onclick="showPage('inscription',this)">Rejoindre</button>
   </nav>
+  <button class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon">🌙</span></button>
   <a id="h-disc" href="https://discord.gg/Pntpchsa" target="_blank" class="hdisc">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.054A19.9 19.9 0 0 0 6.1 21.025a.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
     Discord
@@ -421,7 +487,8 @@ button{cursor:none !important;} a{cursor:none !important;}
 <!-- HOME -->
 <div id="page-home" class="section active">
   <div class="hero">
-    <div class="hero-tag" id="h-eyebrow">🚗 Car Dealership Tycoon • Roblox</div>
+    <div id="recruit-status" class="recruit-badge open"><span class="recruit-dot"></span> Recrutement ouvert</div>
+    <div class="hero-tag" id="h-eyebrow" style="margin-top:12px;">🚗 Car Dealership Tycoon • Roblox</div>
     <h1 class="hero-h1" id="h-title"><span class="line1">TEAM</span><span class="line2">ZEGG</span></h1>
     <p class="hero-sub" id="h-subtitle">La référence sur CDT — Rejoins l'élite</p>
     <div class="hero-stats">
@@ -486,6 +553,16 @@ button{cursor:none !important;} a{cursor:none !important;}
     <div class="sec-div reveal"></div>
     <h2 class="sec-title reveal">ÉVÉNEMENTS</h2>
     <p class="sec-sub reveal" id="events-sub">Compétitions, events & annonces de la Team ZEGG</p>
+    <div id="event-countdown" class="event-countdown reveal" style="display:none;">
+      <div class="ec-title">⏳ PROCHAIN ÉVÉNEMENT DANS</div>
+      <div class="ec-name" id="ec-name"></div>
+      <div class="ec-grid">
+        <div class="ec-box"><span class="ec-num" id="ec-d">00</span><span class="ec-lbl">Jours</span></div>
+        <div class="ec-box"><span class="ec-num" id="ec-h">00</span><span class="ec-lbl">Heures</span></div>
+        <div class="ec-box"><span class="ec-num" id="ec-m">00</span><span class="ec-lbl">Minutes</span></div>
+        <div class="ec-box"><span class="ec-num" id="ec-s">00</span><span class="ec-lbl">Secondes</span></div>
+      </div>
+    </div>
     <div id="ev-grid" class="ev-grid"></div>
   </div>
 </div>
@@ -502,7 +579,31 @@ button{cursor:none !important;} a{cursor:none !important;}
       <div class="gc reveal reveal-d2"><h3 id="c2t">⚔️ Notre Ambition</h3><p id="c2p">Nous visons à devenir la référence absolue sur CDT. Chaque membre est important et contribue à la croissance de la team. Ensemble, on vise les sommets.</p></div>
     </div>
     <div class="obj-sec reveal"><h3 id="obj-title">🎯 OBJECTIFS 2026</h3><div class="obj-grid" id="obj-list"></div></div>
-    <div class="cta-sec reveal">
+    <!-- HALL OF FAME -->
+    <div class="obj-sec reveal" style="margin-top:22px;">
+      <h3>🏅 HALL OF FAME</h3>
+      <div class="hof-grid" id="hof-grid">
+        <div class="hof-card"><div class="hof-emoji">👑</div><div class="hof-name">VORTEX</div><div class="hof-role">Fondateur</div><div class="hof-desc">Créateur de la Team ZEGG</div></div>
+        <div class="hof-card"><div class="hof-emoji">⚔️</div><div class="hof-name">ALEXX</div><div class="hof-role">Co-Fondateur</div><div class="hof-desc">Pilier de la team depuis le jour 1</div></div>
+        <div class="hof-card"><div class="hof-emoji">🏆</div><div class="hof-name">Kevinoug</div><div class="hof-role">MVP</div><div class="hof-desc">Top 3 Money & Miles</div></div>
+        <div class="hof-card"><div class="hof-emoji">💎</div><div class="hof-name">TGL</div><div class="hof-role">Top Grinder</div><div class="hof-desc">Grind machine inépuisable</div></div>
+        <div class="hof-card"><div class="hof-emoji">🔥</div><div class="hof-name">GG</div><div class="hof-role">Membre d'élite</div><div class="hof-desc">Toujours présent, toujours actif</div></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="obj-sec reveal" style="margin-top:22px;">
+      <h3>❓ FAQ — QUESTIONS FRÉQUENTES</h3>
+      <div id="faq-list" style="margin-top:16px;">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment rejoindre la Team ZEGG ?<span class="faq-arrow">▼</span></div><div class="faq-a">Remplis le formulaire dans la section "Rejoindre" ou rejoins directement notre Discord. Un admin examinera ta candidature.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Quelles sont les conditions pour rejoindre ?<span class="faq-arrow">▼</span></div><div class="faq-a">Il n'y a pas de minimum obligatoire, mais on privilégie les joueurs actifs et motivés. L'attitude compte plus que les stats !</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Est-ce que la team est active ?<span class="faq-arrow">▼</span></div><div class="faq-a">Oui ! On organise régulièrement des events, des compétitions et on est actifs sur Discord tous les jours.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Je suis débutant, je peux rejoindre ?<span class="faq-arrow">▼</span></div><div class="faq-a">Bien sûr ! On accueille tous les niveaux. Les membres expérimentés t'aideront à progresser rapidement.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment monter dans les classements ?<span class="faq-arrow">▼</span></div><div class="faq-a">Grinde sur CDT pour accumuler du money et des miles. Les classements sont mis à jour régulièrement par les admins.</div></div>
+      </div>
+    </div>
+
+    <div class="cta-sec reveal" style="margin-top:22px;">
       <p id="cta-text">🔥 <span>Rejoins-nous maintenant</span> et aide la team à atteindre les <span>80 membres</span> ! 🚗💸</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a id="cta-d2" href="https://discord.gg/Pntpchsa" target="_blank" class="btn btn-discord">
@@ -548,6 +649,10 @@ button{cursor:none !important;} a{cursor:none !important;}
   <div class="fr">© 2026 &nbsp;|&nbsp; <a id="foot-disc" href="https://discord.gg/Pntpchsa" target="_blank">Discord</a></div>
 </footer>
 
+<div id="music-btn" class="music-btn" onclick="toggleMusic()" title="Musique d'ambiance">🔇</div>
+<audio id="bg-music" loop preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2024/11/28/audio_3e90e6c1f4.mp3" type="audio/mpeg">
+</audio>
 <div id="toast" class="toast"></div>
 
 <div id="pass-modal">
@@ -691,6 +796,9 @@ button{cursor:none !important;} a{cursor:none !important;}
       </div>
 
       <div class="adm-tab" id="tab-settings">
+        <div class="adm-card"><div class="adm-card-t">📢 Statut recrutement</div>
+          <div class="fg"><label class="fl">Recrutement</label><select class="fs" id="c-recruit" onchange="D.cfg.recruitOpen=this.value==='true';updateRecruitStatus();"><option value="true">Ouvert</option><option value="false">Fermé</option></select></div>
+        </div>
         <div class="adm-card"><div class="adm-card-t">🔗 Liens Discord</div>
           <div class="fg"><label class="fl">Lien Discord</label><input class="fi" id="c-disclink" type="url"></div>
           <div class="fg"><label class="fl">URL Webhook (candidatures)</label><input class="fi" id="c-webhook" type="url"></div>
@@ -820,7 +928,7 @@ const DEF={
     inscTitle:'REJOINDRE ZEGG',inscSub:'Remplis le formulaire — ta demande sera envoyée sur notre Discord',
     discordLink:'https://discord.gg/Pntpchsa',
     webhook:'https://discord.com/api/webhooks/1491506525250785321/wisOQlBZzxwVQX-8RRux9tLER2xX-dgHFWbpbvHAygPQZNSspjbkoeS1avN714LaAo3k',
-    birthDate:'2024-11-01',
+    recruitOpen:true,birthDate:'2024-11-01',
     colors:{accent:'#00e5c9',gold:'#ffb700',red:'#ff2d55',bg:'#03050f',bg1:'#060a18'}
   }
 };
@@ -1073,6 +1181,7 @@ function loadForms(){
   sv('c-objtitle',c.objTitle);sv('c-ctatext',c.ctaText);
   sv('c-insctitle',c.inscTitle);sv('c-inscsub',c.inscSub);
   sv('c-disclink',c.discordLink);sv('c-webhook',c.webhook);sv('c-birth',c.birthDate||'2024-11-01');
+  const rc=document.getElementById('c-recruit');if(rc)rc.value=c.recruitOpen!==false?'true':'false';
   const col=c.colors||{};
   sv('clr-accent',col.accent||'#00e5c9');sv('clr-gold',col.gold||'#ffb700');sv('clr-red',col.red||'#ff2d55');sv('clr-bg',col.bg||'#03050f');sv('clr-bg1',col.bg1||'#060a18');
 }
@@ -1088,8 +1197,9 @@ function saveAll(){
   c.objTitle=gv('c-objtitle')||c.objTitle;c.ctaText=gv('c-ctatext')||c.ctaText;
   c.inscTitle=gv('c-insctitle')||c.inscTitle;c.inscSub=gv('c-inscsub')||c.inscSub;
   c.discordLink=gv('c-disclink')||c.discordLink;c.webhook=gv('c-webhook')||c.webhook;c.birthDate=gv('c-birth')||c.birthDate;
+  c.recruitOpen=gv('c-recruit')==='true';
   saveLBDOM('money');saveLBDOM('miles');syncObj();
-  save();renderAll();updDash();showToast('✅ Tout sauvegardé !');
+  save();renderAll();updDash();updateRecruitStatus();startEventCountdown();showToast('✅ Tout sauvegardé !');
 }
 
 // LB ADMIN
@@ -1245,13 +1355,73 @@ function checkGoalReached(){
   if(mem>=goal){setTimeout(()=>launchCelebration(),1500);}
 }
 
+// ══ THEME TOGGLE ══
+function toggleTheme(){
+  document.documentElement.classList.toggle('light');
+  const isLight=document.documentElement.classList.contains('light');
+  document.querySelector('.theme-icon').textContent=isLight?'☀️':'🌙';
+  localStorage.setItem('zegg-theme',isLight?'light':'dark');
+}
+(function loadTheme(){
+  if(localStorage.getItem('zegg-theme')==='light'){
+    document.documentElement.classList.add('light');
+    const icon=document.querySelector('.theme-icon');if(icon)icon.textContent='☀️';
+  }
+})();
+
+// ══ RECRUITMENT STATUS ══
+function updateRecruitStatus(){
+  const badge=document.getElementById('recruit-status');if(!badge)return;
+  const isOpen=D.cfg.recruitOpen!==false;
+  badge.className='recruit-badge '+(isOpen?'open':'closed');
+  badge.innerHTML='<span class="recruit-dot"></span> '+(isOpen?'Recrutement ouvert':'Recrutement fermé');
+}
+
+// ══ FAQ ══
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+
+// ══ EVENT COUNTDOWN ══
+let ecInterval=null;
+function startEventCountdown(){
+  const events=(D.events||[]).filter(e=>e.date&&new Date(e.date)>new Date()).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const wrap=document.getElementById('event-countdown');
+  if(!events.length){if(wrap)wrap.style.display='none';return;}
+  const next=events[0];
+  if(wrap)wrap.style.display='block';
+  const nameEl=document.getElementById('ec-name');
+  if(nameEl)nameEl.textContent=(next.emoji||'📅')+' '+next.title;
+  if(ecInterval)clearInterval(ecInterval);
+  ecInterval=setInterval(()=>{
+    const now=new Date(),target=new Date(next.date),diff=target-now;
+    if(diff<=0){clearInterval(ecInterval);if(wrap)wrap.style.display='none';return;}
+    const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000);
+    const m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    const de=document.getElementById('ec-d'),he=document.getElementById('ec-h');
+    const me=document.getElementById('ec-m'),se=document.getElementById('ec-s');
+    if(de)de.textContent=String(d).padStart(2,'0');
+    if(he)he.textContent=String(h).padStart(2,'0');
+    if(me)me.textContent=String(m).padStart(2,'0');
+    if(se)se.textContent=String(s).padStart(2,'0');
+  },1000);
+}
+
+// ══ MUSIC ══
+let musicPlaying=false;
+function toggleMusic(){
+  const audio=document.getElementById('bg-music');
+  const btn=document.getElementById('music-btn');
+  if(musicPlaying){audio.pause();btn.textContent='🔇';btn.classList.remove('playing');}
+  else{audio.volume=0.3;audio.play().catch(()=>{});btn.textContent='🎵';btn.classList.add('playing');}
+  musicPlaying=!musicPlaying;
+}
+
 // SECRET: triple-click footer
 let cc=0,ct=null;
 document.getElementById('site-footer').addEventListener('click',()=>{cc++;clearTimeout(ct);ct=setTimeout(()=>cc=0,600);if(cc>=3){cc=0;openPass();}});
 document.getElementById('pass-modal').addEventListener('click',function(e){if(e.target===this)closePass();});
 
 // INIT
-load();renderColors();renderAll();startCounter();checkGoalReached();
+load();renderColors();renderAll();startCounter();checkGoalReached();updateRecruitStatus();startEventCountdown();
 </script>
 </body>
 </html>
