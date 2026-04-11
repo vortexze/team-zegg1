@@ -1167,13 +1167,91 @@ async function submitForm(){
 // TOAST
 function showToast(msg,err=false){const t=document.getElementById('toast');t.textContent=msg;t.classList.toggle('error',err);t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 
+// GOAL CELEBRATION
+function launchCelebration(){
+  if(document.getElementById('celeb-overlay'))return;
+  // Overlay
+  const ov=document.createElement('div');ov.id='celeb-overlay';
+  Object.assign(ov.style,{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',zIndex:99999,pointerEvents:'none',overflow:'hidden'});
+  document.body.appendChild(ov);
+  // Confettis
+  const colors=['#ffb700','#00e5c9','#ff2d55','#5865F2','#fff','#ff9500','#34c759'];
+  const shapes=['●','★','◆','▲','■','✦'];
+  for(let i=0;i<120;i++){
+    const c=document.createElement('div');
+    c.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+    const clr=colors[Math.floor(Math.random()*colors.length)];
+    const left=Math.random()*100;
+    const dur=2+Math.random()*3;
+    const delay=Math.random()*2;
+    const size=10+Math.random()*18;
+    const rot=Math.random()*720-360;
+    Object.assign(c.style,{
+      position:'absolute',top:'-5%',left:left+'%',
+      fontSize:size+'px',color:clr,
+      animation:`confetti-fall ${dur}s ${delay}s ease-in forwards`,
+      textShadow:`0 0 6px ${clr}`,opacity:0
+    });
+    ov.appendChild(c);
+  }
+  // Bannière
+  const ban=document.createElement('div');ban.id='celeb-banner';
+  ban.innerHTML=`
+    <div style="font-size:3rem;margin-bottom:8px;">🏆🎉🚗</div>
+    <div style="font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;background:linear-gradient(90deg,#ffb700,#00e5c9,#ffb700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 2s linear infinite;">OBJECTIF ATTEINT !</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#ccc;margin-top:8px;">La Team ZEGG a atteint les <span style="color:#ffb700;font-weight:700;">80 membres</span> !</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:.85rem;color:#888;margin-top:4px;">Merci à tous 💪🔥</div>
+  `;
+  Object.assign(ban.style,{
+    position:'fixed',top:'50%',left:'50%',transform:'translate(-50%,-50%) scale(0)',
+    zIndex:100000,background:'rgba(3,5,15,0.95)',border:'2px solid #ffb700',
+    borderRadius:'20px',padding:'40px 50px',textAlign:'center',
+    boxShadow:'0 0 60px rgba(255,183,0,0.4),0 0 120px rgba(0,229,201,0.2)',
+    animation:'celeb-pop 0.6s 1s cubic-bezier(0.34,1.56,0.64,1) forwards',
+    pointerEvents:'auto',cursor:'pointer',opacity:0
+  });
+  ban.onclick=()=>{ban.style.animation='celeb-pop-out 0.4s ease-in forwards';setTimeout(()=>{ban.remove();},400);};
+  document.body.appendChild(ban);
+  // Cleanup confettis après 6s
+  setTimeout(()=>{if(ov)ov.remove();},7000);
+}
+// Inject celebration CSS
+(function(){
+  const s=document.createElement('style');
+  s.textContent=`
+    @keyframes confetti-fall{
+      0%{transform:translateY(0) rotate(0deg);opacity:1;}
+      80%{opacity:1;}
+      100%{transform:translateY(110vh) rotate(720deg);opacity:0;}
+    }
+    @keyframes celeb-pop{
+      0%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+      100%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+    }
+    @keyframes celeb-pop-out{
+      0%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+      100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+    }
+    @keyframes shine{
+      0%{background-position:0% center;}
+      100%{background-position:200% center;}
+    }
+  `;
+  document.head.appendChild(s);
+})();
+
+function checkGoalReached(){
+  const mem=parseInt(D.cfg.members)||0,goal=parseInt(D.cfg.goal)||80;
+  if(mem>=goal){setTimeout(()=>launchCelebration(),1500);}
+}
+
 // SECRET: triple-click footer
 let cc=0,ct=null;
 document.getElementById('site-footer').addEventListener('click',()=>{cc++;clearTimeout(ct);ct=setTimeout(()=>cc=0,600);if(cc>=3){cc=0;openPass();}});
 document.getElementById('pass-modal').addEventListener('click',function(e){if(e.target===this)closePass();});
 
 // INIT
-load();renderColors();renderAll();startCounter();
+load();renderColors();renderAll();startCounter();checkGoalReached();
 </script>
 </body>
 </html>
