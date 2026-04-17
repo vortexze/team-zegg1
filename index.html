@@ -132,13 +132,11 @@ header.sc{background:rgba(3,5,15,.95);box-shadow:0 4px 40px rgba(0,229,201,.05);
 .logo{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;letter-spacing:4px;text-decoration:none;display:flex;align-items:center;gap:10px;cursor:none;}
 .logo-t{background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px var(--accent-glow));}
 .logo-b{font-size:.48rem;letter-spacing:3px;color:var(--muted2);background:rgba(0,229,201,.08);border:1px solid var(--border2);padding:2px 8px;border-radius:2px;font-family:'DM Mono',monospace;}
-nav{display:flex;gap:2px;}
-.nb{background:none;border:none;color:var(--muted2);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:8px 16px;cursor:none;position:relative;transition:color .2s;overflow:hidden;}
-.nb::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1px;background:var(--accent);box-shadow:0 0 8px var(--accent);transition:left .25s,right .25s;}
-.nb:hover,.nb.active{color:var(--accent);}
-.nb.active::after{left:16px;right:16px;}
-.nb::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(0,229,201,.08) 50%,transparent 60%);transform:translateX(-100%);transition:transform .4s;}
-.nb:hover::before{transform:translateX(100%);}
+nav{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:100px;padding:4px;}
+.nb{background:none;border:none;color:var(--muted2);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 15px;cursor:none;position:relative;transition:all .25s;border-radius:100px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.nb .nb-icon{font-size:.85rem;line-height:1;}
+.nb:hover{color:var(--text);background:rgba(255,255,255,.06);}
+.nb.active{color:#000;background:linear-gradient(135deg,var(--accent),#00c4ab);box-shadow:0 0 18px rgba(0,229,201,.35),inset 0 1px 0 rgba(255,255,255,.2);font-weight:800;}
 .hdisc{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#5865F2,#4752c4);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:1.5px;padding:10px 20px;cursor:none;border-radius:4px;text-decoration:none;transition:box-shadow .2s,transform .2s;overflow:hidden;position:relative;}
 .hdisc::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s;}
 .hdisc:hover{box-shadow:0 0 24px rgba(88,101,242,.5);transform:translateY(-1px);}
@@ -420,6 +418,8 @@ html.light body{background:var(--bg);color:var(--text);}
 html.light body::after{opacity:.08;}
 html.light header{background:rgba(240,242,245,.85);}
 html.light header.sc{background:rgba(240,242,245,.97);}
+html.light nav{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.1);}
+html.light .nb:hover{background:rgba(0,0,0,.06);color:#000;}
 html.light .gc,.light .hcard,.light .ev-card,.light .form-card,.light .obj-sec,.light .prog-sec,.light .lb-panel{background:rgba(255,255,255,.85);border-color:rgba(0,150,136,.12);}
 html.light .fi,.light .fs,.light .ft{background:rgba(0,0,0,.04);color:var(--text);}
 html.light .fi::placeholder,.light .ft::placeholder{color:#aaa;}
@@ -668,11 +668,11 @@ html.light .insc-stats-row{background:rgba(0,0,0,.06);}
     <span class="logo-b">CDT TEAM</span>
   </a>
   <nav>
-    <button class="nb active" onclick="showPage('home',this)">Accueil</button>
-    <button class="nb" onclick="showPage('tops',this)">🏆 Tops</button>
-    <button class="nb" onclick="showPage('events',this)">📅 Événements</button>
-    <button class="nb" onclick="showPage('about',this)">La Team</button>
-    <button class="nb" onclick="showPage('inscription',this)">Rejoindre</button>
+    <button class="nb active" onclick="showPage('home',this)"><span class="nb-icon">🏠</span>Accueil</button>
+    <button class="nb" onclick="showPage('tops',this)"><span class="nb-icon">🏆</span>Tops</button>
+    <button class="nb" onclick="showPage('events',this)"><span class="nb-icon">📅</span>Événements</button>
+    <button class="nb" onclick="showPage('about',this)"><span class="nb-icon">👥</span>La Team</button>
+    <button class="nb" onclick="showPage('inscription',this)"><span class="nb-icon">⚡</span>Rejoindre</button>
   </nav>
   <button class="theme-toggle" onclick="toggleTheme()"><span class="theme-icon">🌙</span></button>
   <a id="h-disc" href="https://discord.gg/trXn66cf" target="_blank" class="hdisc">
