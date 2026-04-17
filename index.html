@@ -531,6 +531,51 @@ html.light .hof-card{background:rgba(255,255,255,.7);}
   .lc-box{min-width:52px;padding:9px 6px;}
   .lc-n{font-size:1.15rem;}
 }
+
+/* ===== INSCRIPTION PAGE ===== */
+.insc-hero{position:relative;border-radius:16px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 40px;}
+.insc-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,201,.12) 0%,rgba(88,101,242,.1) 40%,rgba(255,183,0,.1) 100%);z-index:0;}
+.insc-hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(0,229,201,.18),transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(255,183,0,.14),transparent 60%);animation:aurora 15s ease-in-out infinite;}
+.insc-hero-bg::after{content:'';position:absolute;inset:0;border:1px solid rgba(0,229,201,.2);border-radius:16px;pointer-events:none;}
+.insc-hero-content{position:relative;z-index:1;}
+.insc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,201,.1);border:1px solid rgba(0,229,201,.3);border-radius:100px;padding:7px 18px;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;animation:pulse 2s ease-in-out infinite;}
+.insc-hero-title{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:4px;background:linear-gradient(135deg,#fff 20%,var(--accent) 60%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;}
+.insc-hero-sub{font-size:1rem;color:var(--muted2);letter-spacing:2px;margin-bottom:32px;}
+.insc-stats-row{display:flex;align-items:center;justify-content:center;gap:0;background:rgba(0,0,0,.3);border:1px solid var(--border2);border-radius:8px;overflow:hidden;width:fit-content;margin:0 auto;}
+.insc-stat{padding:16px 28px;text-align:center;}
+.insc-stat-n{display:block;font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent);filter:drop-shadow(0 0 10px var(--accent-glow));}
+.insc-stat-l{display:block;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;margin-top:3px;}
+.insc-stat-sep{width:1px;height:50px;background:var(--border2);flex-shrink:0;}
+
+/* PERKS */
+.insc-perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:36px;}
+.insc-perk{display:flex;align-items:center;gap:16px;background:rgba(8,14,32,.7);border:1px solid var(--border);border-radius:10px;padding:20px 22px;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.insc-perk::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.insc-perk:hover{border-color:rgba(0,229,201,.3);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,229,201,.08);}
+.insc-perk:hover::before{transform:scaleX(1);}
+.insc-perk-icon{font-size:2rem;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(0,229,201,.3));}
+.insc-perk-title{font-family:'Orbitron',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:1.5px;color:var(--text);margin-bottom:4px;}
+.insc-perk-desc{font-size:.78rem;color:var(--muted2);line-height:1.5;}
+
+/* FORM SUBMIT BUTTON */
+.insc-submit-btn{width:100%;padding:16px 32px;font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;background:linear-gradient(135deg,var(--accent),#00b8a0,var(--gold));background-size:200% auto;color:#000;border:none;border-radius:6px;cursor:none;transition:all .3s;position:relative;overflow:hidden;margin-top:8px;animation:shimmer 3s linear infinite;}
+.insc-submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--accent-glow),0 0 60px rgba(255,183,0,.15);}
+.insc-submit-btn:active{transform:translateY(0);}
+.insc-submit-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s;}
+.insc-submit-btn:hover::before{transform:translateX(100%);}
+
+/* LIGHT MODE */
+html.light .insc-perk{background:rgba(255,255,255,.85);}
+html.light .insc-stats-row{background:rgba(0,0,0,.06);}
+
+@media(max-width:640px){
+  .insc-hero{padding:36px 20px;min-height:240px;}
+  .insc-hero-title{font-size:1.8rem;letter-spacing:2px;}
+  .insc-stats-row{flex-wrap:wrap;width:100%;}
+  .insc-stat{flex:1;padding:12px 16px;}
+  .insc-stat-sep{display:none;}
+  .insc-perks{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -735,28 +780,61 @@ html.light .hof-card{background:rgba(255,255,255,.7);}
 <!-- INSCRIPTION -->
 <div id="page-inscription" class="section">
   <div class="container">
-    <span class="sec-tag reveal">Candidature</span>
-    <div class="sec-div reveal"></div>
-    <h2 class="sec-title reveal" id="insc-title">REJOINDRE ZEGG</h2>
-    <p class="sec-sub reveal" id="insc-sub">Remplis le formulaire — ta demande sera envoyée sur notre Discord</p>
-    <div class="form-wrap">
-      <div class="form-card reveal">
-        <div class="form-notice">✅ <strong>Ta candidature sera envoyée directement sur le Discord de la Team ZEGG.</strong></div>
-        <div class="form-row">
-          <div class="fg"><label class="fl">Pseudo Roblox *</label><input class="fi" id="f-roblox" placeholder="TonPseudo" type="text"></div>
-          <div class="fg"><label class="fl">Pseudo Discord *</label><input class="fi" id="f-discord" placeholder="pseudo#0000" type="text"></div>
+
+    <!-- HERO INSCRIPTION -->
+    <div class="insc-hero reveal">
+      <div class="insc-hero-bg"></div>
+      <div class="insc-hero-content">
+        <div class="insc-badge">🔥 RECRUTEMENT OUVERT</div>
+        <h2 class="insc-hero-title" id="insc-title">REJOINS LA TEAM ZEGG</h2>
+        <p class="insc-hero-sub" id="insc-sub">La team la plus sérieuse sur Car Dealership Tycoon t'attend</p>
+        <div class="insc-stats-row">
+          <div class="insc-stat"><span class="insc-stat-n">33</span><span class="insc-stat-l">Membres actifs</span></div>
+          <div class="insc-stat-sep"></div>
+          <div class="insc-stat"><span class="insc-stat-n">2+</span><span class="insc-stat-l">Ans d'existence</span></div>
+          <div class="insc-stat-sep"></div>
+          <div class="insc-stat"><span class="insc-stat-n">Top</span><span class="insc-stat-l">Communauté CDT</span></div>
         </div>
-        <div class="form-row">
-          <div class="fg"><label class="fl">Money en jeu *</label><input class="fi" id="f-money" placeholder="Ex: $2.5M" type="text"></div>
-          <div class="fg"><label class="fl">Miles *</label><input class="fi" id="f-miles" placeholder="Ex: 15 000 miles" type="text"></div>
-        </div>
-        <div class="fg"><label class="fl">Pourquoi rejoindre la Team ZEGG ?</label><textarea class="ft" id="f-reason" placeholder="Présente-toi et explique ta motivation..."></textarea></div>
-        <div class="fg"><label class="fl">Disponibilité</label>
-          <select class="fs" id="f-dispo"><option value="">Sélectionne...</option><option>Tous les jours</option><option>Week-end uniquement</option><option>Quelques fois par semaine</option><option>Occasionnel</option></select>
-        </div>
-        <button class="btn btn-primary" id="submit-btn" style="width:100%;justify-content:center;font-size:.85rem;padding:15px;" onclick="submitForm()">🚀 Envoyer ma candidature</button>
       </div>
     </div>
+
+    <!-- AVANTAGES -->
+    <div class="insc-perks reveal">
+      <div class="insc-perk"><div class="insc-perk-icon">🏆</div><div><div class="insc-perk-title">Compétitions & Events</div><div class="insc-perk-desc">Participe à nos tournois et events exclusifs</div></div></div>
+      <div class="insc-perk"><div class="insc-perk-icon">📈</div><div><div class="insc-perk-title">Progresser ensemble</div><div class="insc-perk-desc">Les membres s'entraident pour grinder plus vite</div></div></div>
+      <div class="insc-perk"><div class="insc-perk-icon">👑</div><div><div class="insc-perk-title">Communauté soudée</div><div class="insc-perk-desc">Une team active et sérieuse tous les jours</div></div></div>
+      <div class="insc-perk"><div class="insc-perk-icon">🎖️</div><div><div class="insc-perk-title">Grades & Reconnaissance</div><div class="insc-perk-desc">Monte en grade selon tes performances</div></div></div>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div class="form-wrap" style="margin-top:40px;">
+      <div class="form-card reveal" style="position:relative;overflow:hidden;">
+        <div style="text-align:center;margin-bottom:28px;">
+          <div style="font-size:2rem;margin-bottom:8px;">📝</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:800;letter-spacing:3px;color:var(--accent);">TA CANDIDATURE</div>
+          <div style="font-size:.8rem;color:var(--muted2);margin-top:6px;">Remplis le formulaire ci-dessous — on te répond sur Discord</div>
+        </div>
+        <div class="form-notice" style="background:linear-gradient(135deg,rgba(0,229,201,.07),rgba(255,183,0,.04));border-color:rgba(0,229,201,.2);">🚀 <strong>Ta candidature sera envoyée directement dans notre salon Discord.</strong> Un staff examinera ta demande sous 24h !</div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">🎮 Pseudo Roblox *</label><input class="fi" id="f-roblox" placeholder="TonPseudo" type="text"></div>
+          <div class="fg"><label class="fl">💬 Pseudo Discord *</label><input class="fi" id="f-discord" placeholder="pseudo" type="text"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label class="fl">💰 Money en jeu *</label><input class="fi" id="f-money" placeholder="Ex: $2.5M" type="text"></div>
+          <div class="fg"><label class="fl">🛣️ Miles *</label><input class="fi" id="f-miles" placeholder="Ex: 15 000 miles" type="text"></div>
+        </div>
+        <div class="fg"><label class="fl">💡 Pourquoi rejoindre la Team ZEGG ?</label><textarea class="ft" id="f-reason" placeholder="Présente-toi, parle de ton expérience sur CDT et explique ta motivation à rejoindre la team..." style="min-height:110px;"></textarea></div>
+        <div class="fg"><label class="fl">🕐 Disponibilité</label>
+          <select class="fs" id="f-dispo"><option value="">Sélectionne ta dispo...</option><option>Tous les jours</option><option>Week-end uniquement</option><option>Quelques fois par semaine</option><option>Occasionnel</option></select>
+        </div>
+        <button class="btn btn-primary insc-submit-btn" id="submit-btn" onclick="submitForm()">
+          <span class="submit-icon">🚀</span>
+          <span>Envoyer ma candidature</span>
+        </button>
+        <div style="text-align:center;margin-top:14px;font-size:.72rem;color:var(--muted);">En soumettant, tu acceptes d'être contacté sur Discord par notre staff.</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
