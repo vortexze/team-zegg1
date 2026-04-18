@@ -299,43 +299,44 @@ nav{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(-
 .home-ev-title{font-size:.82rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .home-ev-arrow{color:var(--muted);font-size:.8rem;margin-left:auto;flex-shrink:0;}
 
-/* EVENT FEATURED POSTER — landscape */
-.ev-featured{position:relative;border-radius:18px;overflow:hidden;display:flex;flex-direction:row;align-items:stretch;margin-bottom:28px;border:1px solid rgba(255,255,255,.08);min-height:200px;}
+/* EVENT FEATURED POSTER */
+.ev-featured{position:relative;border-radius:16px;overflow:hidden;width:100%;margin-bottom:28px;border:1px solid rgba(255,255,255,.1);}
 .ev-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--accent),var(--gold),var(--red));background-size:200%;animation:shimmer 3s linear infinite;z-index:4;}
 .ev-featured-bg{position:absolute;inset:0;z-index:0;}
-.ev-featured-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(3,5,15,.1) 0%,rgba(3,5,15,.88) 50%,rgba(3,5,15,.97) 100%);}
-.ev-bg-competition .ev-featured-bg{background:radial-gradient(ellipse at 10% 50%,rgba(255,45,85,.5),transparent 50%),linear-gradient(135deg,rgba(30,5,15,1),rgba(10,3,8,1));}
-.ev-bg-annonce .ev-featured-bg{background:radial-gradient(ellipse at 10% 50%,rgba(88,101,242,.5),transparent 50%),linear-gradient(135deg,rgba(8,8,30,1),rgba(4,4,18,1));}
-.ev-bg-event .ev-featured-bg{background:radial-gradient(ellipse at 10% 50%,rgba(0,229,201,.45),transparent 50%),linear-gradient(135deg,rgba(3,15,15,1),rgba(3,5,15,1));}
-.ev-featured-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;}
-.ev-featured-left{position:relative;z-index:3;flex-shrink:0;width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px;gap:14px;}
-.ev-featured-emoji{font-size:3.6rem;filter:drop-shadow(0 0 24px rgba(255,183,0,.5));line-height:1;}
-.ev-featured-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:2px;font-weight:700;text-transform:uppercase;text-align:center;}
-.ev-badge-competition{background:rgba(255,45,85,.15);border:1px solid rgba(255,45,85,.4);color:var(--red);}
+.ev-bg-competition .ev-featured-bg{background:radial-gradient(ellipse at 80% 20%,rgba(255,45,85,.3),transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(255,183,0,.15),transparent 50%),linear-gradient(135deg,#0d0306,#1a050a);}
+.ev-bg-annonce .ev-featured-bg{background:radial-gradient(ellipse at 80% 20%,rgba(88,101,242,.3),transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(0,229,201,.15),transparent 50%),linear-gradient(135deg,#03040f,#06081a);}
+.ev-bg-event .ev-featured-bg{background:radial-gradient(ellipse at 80% 20%,rgba(0,229,201,.25),transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(255,183,0,.15),transparent 50%),linear-gradient(135deg,#030d0d,#03050f);}
+.ev-featured-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:40px 40px;}
+.ev-featured-inner{position:relative;z-index:3;display:grid;grid-template-columns:auto 1fr;gap:0;min-height:200px;}
+/* Left accent bar */
+.ev-featured-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px 24px;background:rgba(0,0,0,.25);border-right:1px solid rgba(255,255,255,.07);}
+.ev-featured-emoji{font-size:3.2rem;line-height:1;filter:drop-shadow(0 0 20px rgba(255,183,0,.4));}
+.ev-featured-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.ev-badge-competition{background:rgba(255,45,85,.15);border:1px solid rgba(255,45,85,.4);color:#ff6b85;}
 .ev-badge-annonce{background:rgba(88,101,242,.15);border:1px solid rgba(88,101,242,.4);color:#7289da;}
 .ev-badge-event{background:rgba(0,229,201,.1);border:1px solid rgba(0,229,201,.35);color:var(--accent);}
-.ev-featured-content{position:relative;z-index:3;flex:1;min-width:0;padding:28px 32px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.06);overflow:hidden;}
-.ev-featured-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.1rem,2.5vw,1.9rem);font-weight:900;letter-spacing:1px;color:#fff;margin-bottom:8px;line-height:1.2;word-break:break-word;}
-.ev-featured-date{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:3px;color:var(--gold);margin-bottom:10px;}
-.ev-featured-desc{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:0;}
-/* Other events below */
+/* Right content */
+.ev-featured-content{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+.ev-featured-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3vw,2rem);font-weight:900;letter-spacing:2px;color:#fff;line-height:1.2;}
+.ev-featured-date{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:3px;color:var(--gold);}
+.ev-featured-desc{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.8;max-width:560px;}
+/* Server button */
+.ev-server-btn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:8px;text-decoration:none;color:#fff;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:1.5px;font-weight:600;transition:all .25s;width:fit-content;backdrop-filter:blur(8px);}
+.ev-server-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.3);}
+/* Other events */
 .ev-more-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
 .ev-more-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.ev-server-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:8px;text-decoration:none;color:#fff;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:1.5px;font-weight:600;transition:all .25s;width:fit-content;}
-.ev-server-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);transform:translateY(-1px);}
-.ev-server-btn span{font-size:.85rem;}
 /* Empty state */
 .ev-empty{text-align:center;padding:80px 40px;border:1px dashed rgba(0,229,201,.12);border-radius:18px;background:rgba(0,229,201,.02);}
 .ev-empty-icon{font-size:3.5rem;margin-bottom:18px;opacity:.5;}
 .ev-empty-title{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:800;letter-spacing:4px;color:var(--muted2);margin-bottom:8px;}
 .ev-empty-sub{font-size:.85rem;color:var(--muted);margin-bottom:24px;}
-@media(max-width:640px){
-  .ev-featured{flex-direction:column;}
-  .ev-featured-left{width:100%;flex-direction:row;justify-content:flex-start;padding:20px 20px 14px;gap:14px;border-left:none;border-bottom:1px solid rgba(255,255,255,.06);}
-  .ev-featured-bg::after{background:linear-gradient(to bottom,rgba(3,5,15,.2),rgba(3,5,15,.95) 70%);}
-  .ev-featured-emoji{font-size:2.4rem;}
-  .ev-featured-content{padding:16px 20px 24px;}
-  .ev-featured-title{font-size:1.2rem;}
+@media(max-width:600px){
+  .ev-featured-inner{grid-template-columns:1fr;}
+  .ev-featured-side{flex-direction:row;justify-content:flex-start;padding:20px 20px 14px;border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
+  .ev-featured-content{padding:20px 20px 28px;}
+  .ev-featured-title{font-size:1.2rem;letter-spacing:1px;}
+  .ev-featured-emoji{font-size:2.2rem;}
 }
 .ev-badge{display:inline-flex;align-items:center;gap:5px;font-size:.58rem;letter-spacing:2px;padding:3px 10px;margin-top:12px;text-transform:uppercase;font-weight:700;border-radius:2px;}
 .ev-badge.competition{background:rgba(255,45,85,.1);border:1px solid rgba(255,45,85,.3);color:var(--red);}
@@ -1391,7 +1392,7 @@ function renderEvents(){
   const typeKey=main.type||'event';
   const typeLabel={competition:'🏁 Compétition',annonce:'📢 Annonce',event:'⚡ Événement'}[typeKey]||'📅 Événement';
   const serverBtn=main.serverLink?`<a href="${main.serverLink}" target="_blank" class="ev-server-btn" style="cursor:pointer!important;">🎮 Rejoindre le serveur privé Roblox <span>↗</span></a>`:'';
-  let html=`<div class="ev-featured ev-bg-${typeKey}"><div class="ev-featured-bg"></div><div class="ev-featured-grid"></div><div class="ev-featured-left"><div class="ev-featured-emoji">${main.emoji||'📅'}</div><div class="ev-featured-badge ev-badge-${typeKey}">${typeLabel}</div></div><div class="ev-featured-content"><div class="ev-featured-title">${main.title}</div><div class="ev-featured-date">📆 ${fmtDate(main.date)}</div>${main.desc?`<div class="ev-featured-desc">${main.desc}</div>`:''}${serverBtn}</div></div>`;
+  let html=`<div class="ev-featured ev-bg-${typeKey}"><div class="ev-featured-bg"></div><div class="ev-featured-grid"></div><div class="ev-featured-inner"><div class="ev-featured-side"><div class="ev-featured-emoji">${main.emoji||'📅'}</div><div class="ev-featured-badge ev-badge-${typeKey}">${typeLabel}</div></div><div class="ev-featured-content"><div class="ev-featured-title">${main.title}</div><div class="ev-featured-date">📆 ${fmtDate(main.date)}</div>${main.desc?`<div class="ev-featured-desc">${main.desc}</div>`:''}${serverBtn}</div></div></div>`;
   if(rest.length){
     html+=`<div class="ev-more-label">Autres événements</div><div class="ev-grid">${rest.map(ev=>`<div class="ev-card"><div class="ev-date">${fmtDate(ev.date)}</div><div class="ev-title">${ev.emoji||'📅'} ${ev.title}</div><div class="ev-desc">${ev.desc||''}</div></div>`).join('')}</div>`;
   }
