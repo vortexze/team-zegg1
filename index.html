@@ -346,73 +346,18 @@ const DEF = {
     aboutText: 'CDT Library est une base de données communautaire qui référence toutes les voitures de Car Dealership Tycoon avec leurs prix, leur vitesse maximale et leur valeur en tokens.\n\nLe but : t\'aider à reconnaître la vraie valeur des voitures pour négocier intelligemment avec d\'autres joueurs.',
     adminPass: 'zegg2026'
   },
-  cars: [
-    {id:1,name:"Police 488 GTB",brand:"Ferrari",class:"Service",price:350000,speed:null,tokens:null,image:""},
-    {id:2,name:"Velocity 110' Heavy-Duty",brand:"Pierce",class:"Service",price:500000,speed:null,tokens:null,image:""},
-    {id:3,name:"GT-R (R35)",brand:"Nissan",class:"Sport",price:500000,speed:null,tokens:null,image:""},
-    {id:4,name:"DBS Superleggera",brand:"Aston Martin",class:"Super",price:550000,speed:null,tokens:null,image:""},
-    {id:5,name:"720S",brand:"McLaren",class:"Super",price:600000,speed:null,tokens:null,image:""},
-    {id:6,name:"SF90 Stradale",brand:"Ferrari",class:"Super",price:650000,speed:null,tokens:null,image:""},
-    {id:7,name:"Roadster 2.0 Concept",brand:"Tesla",class:"Hyper",price:700000,speed:null,tokens:null,image:""},
-    {id:8,name:"F40",brand:"Ferrari",class:"Classic",price:800000,speed:null,tokens:null,image:""},
-    {id:9,name:"LFA",brand:"Lexus",class:"Super",price:900000,speed:null,tokens:null,image:""},
-    {id:10,name:"Ninja H2R",brand:"Kawasaki",class:"Moto",price:949000,speed:null,tokens:null,image:""},
-    {id:11,name:"Cerrera GT",brand:"Porsche",class:"Super",price:950000,speed:null,tokens:null,image:""},
-    {id:12,name:"296 GT3",brand:"Ferrari",class:"Race",price:990000,speed:null,tokens:null,image:""},
-    {id:13,name:"S7",brand:"Saleen",class:"Super",price:1000000,speed:null,tokens:null,image:""},
-    {id:14,name:"599XX",brand:"Ferrari",class:"Race",price:1050000,speed:null,tokens:null,image:""},
-    {id:15,name:"Senna",brand:"McLaren",class:"Super",price:1250000,speed:null,tokens:null,image:""},
-    {id:16,name:"Valhalla Concept",brand:"Aston Martin",class:"Hyper",price:1300000,speed:null,tokens:null,image:""},
-    {id:17,name:"935",brand:"Porsche",class:"Race",price:1400000,speed:null,tokens:null,image:""},
-    {id:18,name:"918 Spyder",brand:"Porsche",class:"Hyper",price:1500000,speed:null,tokens:null,image:""},
-    {id:19,name:"Revuelto",brand:"Lamborghini",class:"Super",price:1600000,speed:null,tokens:null,image:""},
-    {id:20,name:"F1",brand:"McLaren",class:"Classic",price:1750000,speed:null,tokens:null,image:""},
-    {id:21,name:"P1",brand:"McLaren",class:"Hyper",price:2000000,speed:null,tokens:null,image:""},
-    {id:22,name:"Gemera",brand:"Koenigsegg",class:"Hyper",price:2250000,speed:null,tokens:null,image:""},
-    {id:23,name:"Elva",brand:"McLaren",class:"Hyper",price:2330000,speed:null,tokens:null,image:""},
-    {id:24,name:"Regera Ghost Package",brand:"Koenigsegg",class:"Hyper",price:2500000,speed:null,tokens:null,image:""},
-    {id:25,name:"LaFerrari",brand:"Ferrari",class:"Hyper",price:2750000,speed:null,tokens:null,image:""},
-    {id:26,name:"Venom GT",brand:"Hennessey",class:"Hyper",price:3000000,speed:null,tokens:null,image:""},
-    {id:27,name:"MCL36",brand:"McLaren",class:"Race",price:3000000,speed:null,tokens:null,image:""},
-    {id:28,name:"Countach LPI 800-4",brand:"Lamborghini",class:"Hyper",price:3500000,speed:null,tokens:null,image:""},
-    {id:29,name:"Vulcan",brand:"Aston Martin",class:"Race",price:3750000,speed:null,tokens:null,image:""},
-    {id:30,name:"P72",brand:"De Tomaso",class:"Super",price:4250000,speed:null,tokens:null,image:""},
-    {id:31,name:"Speedtail",brand:"McLaren",class:"Hyper",price:4500000,speed:null,tokens:null,image:""},
-    {id:32,name:"Chiron Sport",brand:"Bugatti",class:"Hyper",price:5000000,speed:null,tokens:null,image:""},
-    {id:33,name:"172 Skyhawk",brand:"Cessna",class:"Aircraft",price:5000000,speed:null,tokens:null,image:""},
-    {id:34,name:"Fire Service AW139",brand:"AgustaWestland",class:"Aircraft",price:5000000,speed:null,tokens:null,image:""},
-    {id:35,name:"Divo",brand:"Bugatti",class:"Hyper",price:7500000,speed:null,tokens:null,image:""},
-    {id:36,name:"Police H125",brand:"Airbus Helicopters",class:"Aircraft",price:8000000,speed:null,tokens:null,image:""},
-    {id:37,name:"Nevera",brand:"Rimac",class:"Hyper",price:8250000,speed:null,tokens:null,image:""},
-    {id:38,name:"Tuatara",brand:"SSC",class:"Hyper",price:9000000,speed:null,tokens:null,image:""},
-    {id:39,name:"Venom F5",brand:"Hennessey",class:"Hyper",price:10000000,speed:null,tokens:null,image:""},
-    {id:40,name:"Sadair's Spear",brand:"Koenigsegg",class:"Hyper",price:12500000,speed:null,tokens:null,image:""},
-    {id:41,name:"H160",brand:"Airbus Helicopters",class:"Aircraft",price:15000000,speed:null,tokens:null,image:""},
-    {id:42,name:"Venom F5 Revolution Roadster",brand:"Hennessey",class:"Hyper",price:20000000,speed:null,tokens:null,image:""},
-    {id:43,name:"PC-24",brand:"Pilatus",class:"Aircraft",price:20000000,speed:null,tokens:null,image:""},
-    {id:44,name:"S4 Competitive",brand:"Bayern",class:"Sport",price:null,speed:null,tokens:null,image:"",acquisition:"⭐ 500"},
-    {id:45,name:"271 Special Edition",brand:"Checker",class:"Aircraft",price:null,speed:null,tokens:null,image:"",acquisition:"Map Mastery Quests"},
-    {id:46,name:"Corsaro XX09",brand:"Corsaro",class:"Race",price:null,speed:null,tokens:null,image:"",acquisition:"30 Daily Rewards"},
-    {id:47,name:"077 Ultra",brand:"Lavish",class:"Super",price:null,speed:null,tokens:null,image:"",acquisition:"25 Daily Rewards"},
-    {id:48,name:"Wagon",brand:"Lavish",class:"Sport",price:null,speed:null,tokens:null,image:"",acquisition:"⭐ 3,000"},
-    {id:49,name:"Mercy Drift",brand:"Macchina",class:"Super",price:null,speed:null,tokens:null,image:"",acquisition:"Map Mastery Quests"},
-    {id:50,name:"I63",brand:"Mercez",class:"Sedan",price:null,speed:null,tokens:null,image:"",acquisition:"20 Daily Rewards"},
-    {id:51,name:"073s Drift",brand:"Nezzan",class:"Sport",price:null,speed:null,tokens:null,image:"",acquisition:"Drift Trials"},
-    {id:52,name:"RTR",brand:"Nezzan",class:"Sport",price:null,speed:null,tokens:null,image:"",acquisition:"5 Daily Rewards"},
-    {id:53,name:"RTR-05",brand:"Nezzan",class:"Sport",price:null,speed:null,tokens:null,image:"",acquisition:"⭐ 2,000"},
-    {id:54,name:"Canyon Turbo",brand:"Sportler",class:"SUV",price:null,speed:null,tokens:null,image:"",acquisition:"⭐ 1,000"}
-  ]
+  cars: []
 };
 
 let D = {};
 function load(){
-  try{const s=localStorage.getItem('cdt_lib_v3');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
+  try{const s=localStorage.getItem('cdt_lib_v4');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
   catch(e){D=JSON.parse(JSON.stringify(DEF));}
   if(!D.cfg)D.cfg=JSON.parse(JSON.stringify(DEF.cfg));
   if(!D.cars)D.cars=JSON.parse(JSON.stringify(DEF.cars));
   Object.keys(DEF.cfg).forEach(k=>{if(D.cfg[k]===undefined)D.cfg[k]=DEF.cfg[k];});
 }
-function save(){localStorage.setItem('cdt_lib_v3',JSON.stringify(D));}
+function save(){localStorage.setItem('cdt_lib_v4',JSON.stringify(D));}
 
 // ═══════════════ HELPERS ═══════════════
 const fmt=n=>n==null||isNaN(n)?'—':Number(n).toLocaleString('fr-FR');
