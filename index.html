@@ -342,39 +342,18 @@ const DEF = {
     aboutText: 'CDT Library est une base de données communautaire qui référence toutes les voitures de Car Dealership Tycoon avec leurs prix, leur vitesse maximale et leur valeur en tokens.\n\nLe but : t\'aider à reconnaître la vraie valeur des voitures pour négocier intelligemment avec d\'autres joueurs.',
     adminPass: 'zegg2026'
   },
-  cars: [
-    {id:1,name:'Chiron',brand:'Bugatti',class:'Hyper',price:3000000,speed:261,tokens:180000,image:''},
-    {id:2,name:'Divo',brand:'Bugatti',class:'Hyper',price:5700000,speed:236,tokens:220000,image:''},
-    {id:3,name:'Jesko',brand:'Koenigsegg',class:'Hyper',price:3000000,speed:300,tokens:190000,image:''},
-    {id:4,name:'Agera RS',brand:'Koenigsegg',class:'Hyper',price:2500000,speed:277,tokens:160000,image:''},
-    {id:5,name:'Aventador SVJ',brand:'Lamborghini',class:'Super',price:1200000,speed:217,tokens:120000,image:''},
-    {id:6,name:'Huracán Performante',brand:'Lamborghini',class:'Super',price:800000,speed:202,tokens:90000,image:''},
-    {id:7,name:'F40',brand:'Ferrari',class:'Classic',price:2500000,speed:201,tokens:170000,image:''},
-    {id:8,name:'LaFerrari',brand:'Ferrari',class:'Hyper',price:2200000,speed:217,tokens:165000,image:''},
-    {id:9,name:'488 Pista',brand:'Ferrari',class:'Super',price:950000,speed:211,tokens:100000,image:''},
-    {id:10,name:'911 GT3 RS',brand:'Porsche',class:'Sport',price:600000,speed:193,tokens:75000,image:''},
-    {id:11,name:'918 Spyder',brand:'Porsche',class:'Hyper',price:1800000,speed:214,tokens:140000,image:''},
-    {id:12,name:'Huayra BC',brand:'Pagani',class:'Hyper',price:2800000,speed:238,tokens:200000,image:''},
-    {id:13,name:'P1',brand:'McLaren',class:'Hyper',price:1600000,speed:217,tokens:135000,image:''},
-    {id:14,name:'720S',brand:'McLaren',class:'Super',price:700000,speed:212,tokens:85000,image:''},
-    {id:15,name:'R8 V10',brand:'Audi',class:'Super',price:450000,speed:201,tokens:55000,image:''},
-    {id:16,name:'M4 Competition',brand:'BMW',class:'Sport',price:200000,speed:180,tokens:35000,image:''},
-    {id:17,name:'AMG GT Black Series',brand:'Mercedes',class:'Super',price:800000,speed:202,tokens:95000,image:''},
-    {id:18,name:'Model S Plaid',brand:'Tesla',class:'Sedan',price:350000,speed:200,tokens:45000,image:''},
-    {id:19,name:'GT-R Nismo',brand:'Nissan',class:'Sport',price:280000,speed:195,tokens:40000,image:''},
-    {id:20,name:'Supra MK4',brand:'Toyota',class:'Sport',price:180000,speed:178,tokens:30000,image:''}
-  ]
+  cars: []
 };
 
 let D = {};
 function load(){
-  try{const s=localStorage.getItem('cdt_lib_v1');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
+  try{const s=localStorage.getItem('cdt_lib_v2');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
   catch(e){D=JSON.parse(JSON.stringify(DEF));}
   if(!D.cfg)D.cfg=JSON.parse(JSON.stringify(DEF.cfg));
   if(!D.cars)D.cars=JSON.parse(JSON.stringify(DEF.cars));
   Object.keys(DEF.cfg).forEach(k=>{if(D.cfg[k]===undefined)D.cfg[k]=DEF.cfg[k];});
 }
-function save(){localStorage.setItem('cdt_lib_v1',JSON.stringify(D));}
+function save(){localStorage.setItem('cdt_lib_v2',JSON.stringify(D));}
 
 // ═══════════════ HELPERS ═══════════════
 const fmt=n=>n==null||isNaN(n)?'—':Number(n).toLocaleString('fr-FR');
@@ -413,7 +392,11 @@ function renderCars(){
   list.sort(sorters[sort]||sorters.name);
   document.getElementById('count').innerHTML=`<b>${list.length}</b> / ${D.cars.length} voitures`;
   const grid=document.getElementById('cars-grid');
-  if(!list.length){grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-i">🔍</div><div class="empty-t">AUCUN RÉSULTAT</div><div class="empty-s">Essaie d'autres critères.</div></div>`;return;}
+  if(!list.length){
+    if(!D.cars.length){grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-i">🚧</div><div class="empty-t">BIBLIOTHÈQUE EN CONSTRUCTION</div><div class="empty-s">Les voitures seront bientôt ajoutées. Reviens vite !</div></div>`;}
+    else grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-i">🔍</div><div class="empty-t">AUCUN RÉSULTAT</div><div class="empty-s">Essaie d'autres critères.</div></div>`;
+    return;
+  }
   grid.innerHTML=list.map(c=>{
     const img=c.image?`<img src="${c.image}" alt="${c.name}" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=card-img-ph>🚗</div>'">`:`<div class="card-img-ph">🚗</div>`;
     const tLow=c.tokens?c.tokens-20000:0,tHigh=c.tokens?c.tokens+20000:0;
