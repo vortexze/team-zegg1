@@ -351,13 +351,16 @@ const DEF = {
 
 let D = {};
 function load(){
-  try{const s=localStorage.getItem('cdt_lib_v9');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
+  try{const s=localStorage.getItem('cdt_lib_v10');D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}
   catch(e){D=JSON.parse(JSON.stringify(DEF));}
   if(!D.cfg)D.cfg=JSON.parse(JSON.stringify(DEF.cfg));
   if(!D.cars)D.cars=JSON.parse(JSON.stringify(DEF.cars));
   Object.keys(DEF.cfg).forEach(k=>{if(D.cfg[k]===undefined)D.cfg[k]=DEF.cfg[k];});
+  // Assign stable sequential IDs to any car missing one (seed data has no ids)
+  let nextId=1;
+  D.cars.forEach(c=>{if(c.id==null){c.id=nextId++;}else{nextId=Math.max(nextId,(c.id|0)+1);}});
 }
-function save(){localStorage.setItem('cdt_lib_v9',JSON.stringify(D));}
+function save(){localStorage.setItem('cdt_lib_v10',JSON.stringify(D));}
 
 // ═══════════════ HELPERS ═══════════════
 const fmt=n=>n==null||isNaN(n)?'—':Number(n).toLocaleString('fr-FR');
