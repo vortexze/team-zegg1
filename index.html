@@ -425,7 +425,7 @@ function renderCars(){
         <div class="card-name">${c.name}</div>
         ${c.realName&&c.realName!==c.name?`<div class="card-real" style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);margin:-8px 0 10px;letter-spacing:1px;opacity:.7">↳ ${c.realName}</div>`:''}
         <div class="stats">
-          <div class="stat"><div class="stat-lbl">${c.price?'Prix':'Obtention'}</div><div class="stat-val gold" style="${!c.price&&c.acquisition?'font-size:.72rem;font-family:DM Mono,monospace;letter-spacing:1px':''}">${c.price?fmtMoney(c.price):(c.acquisition||'Exclusif')}</div></div>
+          <div class="stat"><div class="stat-lbl">${c.price!=null?'Prix':'Obtention'}</div><div class="stat-val gold" style="${c.price==null&&c.acquisition?'font-size:.72rem;font-family:DM Mono,monospace;letter-spacing:1px':''}">${c.price!=null?fmtMoney(c.price):(c.acquisition||'Exclusif')}</div></div>
           <div class="stat"><div class="stat-lbl">Vitesse</div><div class="stat-val cyan">${c.speed?c.speed+' mph':'—'}</div></div>
         </div>
         ${c.tokens?`<div class="tokens-bar"><span class="ti">🪙</span><span class="tv">${fmt(tLow)} – ${fmt(tHigh)}</span></div>`:''}
@@ -457,7 +457,7 @@ function openCar(id){
       <div class="dt-name">${c.name}</div>
       ${c.realName&&c.realName!==c.name?`<div style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted2);margin-top:-14px;margin-bottom:20px;letter-spacing:1.5px;opacity:.75">↳ inspirée de : <b style="color:#fff;opacity:.9">${c.realName}</b></div>`:''}
       <div class="dt-stats">
-        <div class="dt-stat"><div class="l">${c.price?'💰 Prix':'🎁 Obtention'}</div><div class="v gold" style="${!c.price&&c.acquisition?'font-size:.85rem':''}">${c.price?fmtMoney(c.price):(c.acquisition||'Exclusif')}</div></div>
+        <div class="dt-stat"><div class="l">${c.price!=null?'💰 Prix':'🎁 Obtention'}</div><div class="v gold" style="${c.price==null&&c.acquisition?'font-size:.85rem':''}">${c.price!=null?fmtMoney(c.price):(c.acquisition||'Exclusif')}</div></div>
         <div class="dt-stat"><div class="l">⚡ Vitesse max</div><div class="v cyan">${c.speed?c.speed+' mph':'—'}</div></div>
         <div class="dt-stat"><div class="l">🏷 Classe</div><div class="v">${c.class||'—'}</div></div>
       </div>
