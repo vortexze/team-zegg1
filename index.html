@@ -525,7 +525,7 @@ function openCar(id){
         <div class="tl">🪙 Valeur en tokens ${c.demand?`<span style="color:var(--accent);margin-left:8px">Demand ${c.demand}/10</span>`:''}</div>
         <div class="token-range">${fmt(tLow)}<span class="sep">–</span>${fmt(tHigh)}</div>
         <div class="token-mid">Médiane : <b>${fmt(tMid)} tokens</b> · <span style="opacity:.6;font-size:.7rem">${tokSrc}</span></div>
-      </div>`:'<div class="token-box"><div class="tl">Valeur en tokens non publiée</div><div class="token-mid" style="margin-top:8px;opacity:.6;font-size:.72rem">Cette voiture n\\'a pas de valeur communautaire référencée (souvent les Shop / Mission non-tradeable).</div></div>'}
+      </div>`:'<div class="token-box"><div class="tl">Valeur en tokens non publiée</div><div class="token-mid" style="margin-top:8px;opacity:.6;font-size:.72rem">Cette voiture n\'a pas de valeur communautaire référencée (souvent les Shop / Mission non-tradeable).</div></div>'}
     </div>`;
   document.getElementById('car-modal').classList.add('open');
 }
