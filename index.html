@@ -201,7 +201,6 @@ main{max-width:1400px;margin:0 auto;padding:28px}
 </style>
 </head>
 <body>
-<div id="loader"><div class="ldw">BIBLIOTHÈQUE CDT</div></div>
 
 <header id="hdr"><div class="hdr-in">
   <div class="logo">🚗 <span class="gg">BIBLIOTHÈQUE CDT</span></div>
@@ -697,7 +696,7 @@ function applyCfg(){
 // ═══════════════ INIT ═══════════════
 load();populateFilters();renderCars();applyCfg();
 addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('sc',scrollY>20));
-addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),600));
+// loader removed
 addEventListener('keydown',e=>{if(e.key==='Escape'){closeCar();closeAdm();closePass();}});
 </script>
 </body>
